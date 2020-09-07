@@ -8,8 +8,13 @@ public class collision : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("hit!");
-        AudioSource.PlayClipAtPoint(sound, transform.position);
+        if (collision.gameObject.name == "Cola Can")
+        {
+            Debug.Log("hit!");
+            AudioSource.PlayClipAtPoint(sound, transform.position);
+            Destroy(collision.gameObject);
+        }
+            
     }
     // Start is called before the first frame update
     void Start()
